@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="icon" type="image/png" href="/assets/img/mix.png">
+    <title>MIX</title>
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css">
+  </head>
+  <body>
+    <div class="container mt-4 mb-4">
+
+      <div class="d-flex mb-4 bg-white align-items-stretch">
+        <div class="flex-shrink-1 d-flex  align-items-center border border-right-0 bg-light rounded-left text-nowrap px-3 py-2">
+          <div>WS</div>
+        </div>
+        <div class="w-100 bg-light" style="position: relative;">
+          <textarea id="websocket-url" type="text" class="form-control autoinput rounded-0 w-100 bg-white overflow-hidden" data-autoinput-resize="focus" placeholder="wss://host/path/to/websocket" rows="1" style="word-break: break-all;"></textarea>
+        </div>
+        <div class="flex-shrink-1 bg-light">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-secondary rounded-0 py-2 mr-1" id="websocket-connect">OPEN</button>
+            <button type="button" class="btn btn-primary py-2 mr-1" id="websocket-send">SEND</button>
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-primary dropdown-toggle py-2" data-toggle="dropdown"></button>
+              <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="/">ClOSE</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm">
+
+          <div class="border rounded mb-4">
+            <div class="d-flex justify-content-between align-items-center bg-light border-bottom rounded">
+              <button type="button" class="btn btn-white">BODY</button>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-link rounded-0" id="websocket-connect">FORMAT</button>
+                <div class="btn-group" role="group">
+                  <button type="button" class="btn dropdown-toggle btn-link" data-toggle="dropdown"></button>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="/">CLEAR</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <textarea id="websocket-request-body" type="text" class="form-control autoinput border-0" style="min-height: 200px; max-height: 200px;"></textarea>
+          </div>
+
+          <div class="border rounded mb-4">
+            <div class="d-flex justify-content-between align-items-center bg-light border-bottom rounded">
+              <button type="button" class="btn btn-white" data-toggle="collapse" href="#console-output">CONSOLE</button>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-link rounded-0" id="websocket-connect">CLEAR</button>
+                <div class="btn-group" role="group">
+                  <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown"></button>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="/">CLEAR</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="console-output" class="bg-white collapse show overflow-auto pb-1" style="min-height: 200px; max-height: 200px;"></div>
+          </div>
+
+        </div>
+
+        <div class="col-sm">
+          <div class="border rounded mb-4">
+            <div class="d-flex justify-content-between align-items-center bg-light border-bottom rounded">
+              <button type="button" class="btn btn-white">MESSAGE</button>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-link rounded-0" id="websocket-connect">CLEAR</button>
+                <div class="btn-group" role="group">
+                  <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown"></button>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="/">CLEAR</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="message-output" class="overflow-auto pb-1" style="min-height: 450px; max-height: 450px;"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <script src="/assets/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="/assets/popper/1.14.7/popper.min.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/js/autoinput.js"></script>
+    <script src="./js/websocket.js"></script>
+    <script src="/assets/js/menu.js"></script>
+  </body>
+</html>
