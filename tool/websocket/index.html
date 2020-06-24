@@ -11,29 +11,30 @@
   <body>
     <div class="container mt-4 mb-4">
 
-      <div class="d-flex mb-4 bg-white align-items-stretch">
-        <div class="flex-shrink-1 d-flex  align-items-center border border-right-0 bg-light rounded-left text-nowrap px-2 py-2">
-          <div>WS</div>
-        </div>
-        <div class="w-100 bg-light mr-1" style="position: relative;">
-          <textarea id="websocket-url" type="text" class="form-control autoinput rounded-0 w-100 bg-white overflow-hidden" data-autoinput-resize="focus" rows="1" style="word-break: break-all;"></textarea>
-        </div>
-        <div class="flex-shrink-1 bg-light">
-          <div class="btn-group" role="group">
-            <button type="button" class="btn btn-secondary rounded-0 py-2 mr-1" id="websocket-connect">OPEN</button>
-            <button type="button" class="btn btn-primary py-2 mr-1" id="websocket-send">SEND</button>
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-primary dropdown-toggle py-2" data-toggle="dropdown"></button>
-              <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" href="/">ClOSE</a>
+      <div class="row mx-1">
+        <div class="col-sm px-1">
+
+          <div class="d-flex mb-2 bg-white align-items-stretch">
+            <div class="flex-shrink-1 d-flex  align-items-center border border-right-0 bg-light rounded-left text-nowrap px-2 py-2">
+              <div>WS</div>
+            </div>
+            <div class="w-100 bg-light mr-1" style="position: relative;">
+              <textarea id="websocket-url" type="text" class="form-control autoinput rounded-0 w-100 bg-white overflow-hidden" data-autoinput-resize="focus" rows="1" style="word-break: break-all;"></textarea>
+            </div>
+            <div class="flex-shrink-1 bg-light">
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-secondary rounded-0 py-2 mr-1" id="websocket-connect">OPEN</button>
+                <button type="button" class="btn btn-primary py-2 mr-1" id="websocket-send">SEND</button>
+                <div class="btn-group" role="group">
+                  <button type="button" class="btn btn-primary dropdown-toggle py-2" data-toggle="dropdown"></button>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="/">ClOSE</a>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col-sm">
+          </div>
 
           <div class="d-flex mb-2 bg-white align-items-stretch">
             <div class="flex-shrink-1 d-flex  align-items-center border border-right-0 bg-light rounded-left text-nowrap px-2 py-2">
@@ -53,7 +54,7 @@
             </div>
           </div>
 
-          <div class="border rounded mb-4">
+          <div class="border rounded mb-2">
             <div class="d-flex justify-content-between align-items-center bg-light border-bottom rounded">
               <button type="button" class="btn btn-white">BODY</button>
               <div class="btn-group" role="group">
@@ -66,13 +67,27 @@
                 </div>
               </div>
             </div>
-            <textarea id="websocket-request-body" type="text" class="form-control autoinput border-0" style="min-height: 224px; max-height: 224px;"></textarea>
+            <textarea id="websocket-request-body" type="text" class="form-control autoinput border-0" style="min-height: 200px; max-height: 200px;"></textarea>
           </div>
 
+          <div class="border rounded mb-2">
+            <div class="d-flex justify-content-between align-items-center bg-light border-bottom rounded">
+              <button type="button" class="btn btn-white" data-toggle="collapse" href="#console-output">CONSOLE</button>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-link rounded-0" id="websocket-connect">CLEAR</button>
+                <div class="btn-group" role="group">
+                  <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown"></button>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="/">CLEAR</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="console-output" class="bg-white collapse show overflow-auto pb-1" style="min-height: 200px; max-height: 200px;"></div>
+          </div>
         </div>
-
-        <div class="col-sm">
-          <div class="border rounded mb-4">
+        <div class="col-sm px-1">
+          <div class="border rounded mb-2">
             <div class="d-flex justify-content-between align-items-center bg-light border-bottom rounded">
               <button type="button" class="btn btn-white">MESSAGE</button>
               <div class="btn-group" role="group">
@@ -85,27 +100,10 @@
                 </div>
               </div>
             </div>
-            <div id="message-output" class="overflow-auto pb-1" style="min-height: 300px; max-height: 300px;"></div>
+            <div id="message-output" class="overflow-auto pb-1" style="min-height: 552px; max-height: 552px;"></div>
           </div>
-
         </div>
-
       </div>
-
-      <div class="border rounded mb-4">
-        <div class="d-flex justify-content-between align-items-center bg-light border-bottom rounded">
-          <button type="button" class="btn btn-white" data-toggle="collapse" href="#console-output">CONSOLE</button>
-          <div class="btn-group" role="group">
-            <button type="button" class="btn btn-link rounded-0" id="websocket-connect">CLEAR</button>
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown"></button>
-              <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" href="/">CLEAR</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="console-output" class="bg-white collapse show overflow-auto pb-1" style="min-height: 200px; max-height: 200px;"></div>
       </div>
 
     </div>
