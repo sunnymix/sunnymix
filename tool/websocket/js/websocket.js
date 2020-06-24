@@ -63,7 +63,7 @@ $(function () {
         if (proxy.length > 0) {
             connectUrl = proxy
                 + '?u=' + encodeURIComponent(url)
-                + '&cookie=' + encodeURIComponent(cookie);
+                + '&c=' + encodeURIComponent(cookie);
         }
 
         log('Connect:<br>' + connectUrl);
