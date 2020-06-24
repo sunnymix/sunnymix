@@ -7,6 +7,7 @@ $(function () {
     var closeBtn = $('#websocket-close');
     var historyBtn = $('#websocket-history');
     var requestBody = $('#websocket-request-body');
+    var collapse = 'collapse';
 
     var consoleOutput = $('#console-output');
     var messageOutput = $('#message-output');
@@ -26,7 +27,7 @@ $(function () {
     function block(data) {
         var template = $([
             '<div class="block pt-1 px-1" style="word-break:break-all">',
-            '  <div class="body bg-light p-2 rounded">',
+            '  <div class="body bg-light p-1 rounded">',
             '  </div>',
             '</div>'
         ].join(''));
@@ -38,12 +39,14 @@ $(function () {
         data = data || '';
         if (data && data.length) {
             consoleOutput.append(block(data));
+            consoleOutput[0].scrollTop = consoleOutput[0].scrollHeight;
         }
     }
 
     function message(messageOp, data) {
         data = data || '';
         messageOutput.append(block(data));
+        messageOutput[0].scrollTop = messageOutput[0].scrollHeight;
     }
 
     function logMessage(messageOp, data) {
@@ -53,8 +56,25 @@ $(function () {
         message(messageOp, data);
     }
 
+    function connectPrepare() {
+        connectBtn.prop('disabled', true);
+        closeBtn.removeClass(collapse);
+    }
+
+    function connectOk() {
+        connectBtn.prop('disabled', false);
+        connectBtn.addClass(collapse);
+        sendBtn.removeClass(collapse);
+    }
+
+    function connectClose() {
+        connectBtn.removeClass(collapse);
+        sendBtn.addClass(collapse);
+        closeBtn.addClass(collapse);
+    }
+
     function connect() {
-        // connectBtn.prop('disabled', true);
+        connectPrepare();
         var url = urlInput.val().trim();
         var proxy = proxyInput.val().trim();
         var cookie = cookieInput.val().trim();
@@ -71,8 +91,9 @@ $(function () {
         var ws = new WebSocket(connectUrl);
 
         function onOpen(e) {
+            connectOk();
             var state = ws.readyState;
-            log('Opened:<br>' + 'readyState = ' + state + '/' + readyStateDic[state]);
+            log('Opened:<br>' + 'readyState=' + state + '-' + readyStateDic[state]);
         }
 
         function onMessage(e) {
@@ -90,12 +111,14 @@ $(function () {
             }
         }
 
-        function onClose(e) {
-            log('Close:<br>...');
+        function closeConnection() {
+            ws.close();
         }
 
-        function onError(e) {
-
+        function onClose(e) {
+            var state = ws.readyState;
+            log('Close:<br>' + 'readyState=' + state + '-' + readyStateDic[state]);
+            connectClose();
         }
 
         function sendMessage() {
@@ -112,6 +135,9 @@ $(function () {
 
         sendBtn.unbind('click');
         sendBtn.bind('click', sendMessage);
+
+        closeBtn.unbind('click');
+        closeBtn.bind('click', closeConnection);
     }
 
     function init() {
