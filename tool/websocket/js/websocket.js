@@ -17,21 +17,31 @@ $(function () {
         'OPEN',
         'CLOSING',
         'CLOSED'
-    ]
+    ];
 
-    var messageOps = {
+    var OPS = {
         SEND: 'SEND',
         RECEIVE: 'RECEIVE'
+    };
+
+    var ICONS = {
+        SEND: '<i class="text-success fa fa-arrow-up"></i>',
+        RECEIVE: '<i class="text-danger fa fa-arrow-down"></i>'
     }
 
-    function block(data) {
+    function block(data, icon) {
         var template = $([
             '<div class="block pt-1 px-1" style="word-break:break-all">',
-            '  <div class="body bg-light p-1 rounded">',
+            '  <div class="d-flex bg-light p-1">',
+            '    <div class="icon p-1"></div>',
+            '    <div class="body p-1"></div>',
             '  </div>',
             '</div>'
         ].join(''));
         template.find('.body').html(data);
+        if (icon) {
+            template.find('.icon').append(icon);
+        }
         return template;
     }
 
@@ -45,7 +55,7 @@ $(function () {
 
     function message(messageOp, data) {
         data = data || '';
-        messageOutput.append(block(data));
+        messageOutput.append(block(data, ICONS[messageOp]));
         messageOutput[0].scrollTop = messageOutput[0].scrollHeight;
     }
 
@@ -98,7 +108,7 @@ $(function () {
 
         function onMessage(e) {
             if (typeof e.data === "string") {
-                logMessage(messageOps.RECEIVE, e.data);
+                logMessage(OPS.RECEIVE, e.data);
             }
 
             if (e.data instanceof ArrayBuffer) {
@@ -106,7 +116,7 @@ $(function () {
                 var r = new FileReader();
                 r.readAsText(blob, 'utf-8');
                 r.onload = function (e) {
-                    logMessage(messageOps.RECEIVE, r.result);
+                    logMessage(OPS.RECEIVE, r.result);
                 }
             }
         }
@@ -124,7 +134,7 @@ $(function () {
         function sendMessage() {
             var data = requestBody.val().trim();
             if (data.length) {
-                logMessage(messageOps.SEND, data);
+                logMessage(OPS.SEND, data);
                 ws.send(data);
             }
         }
