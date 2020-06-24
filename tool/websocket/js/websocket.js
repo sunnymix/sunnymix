@@ -1,5 +1,7 @@
 $(function () {
     var urlInput = $('#websocket-url');
+    var proxyInput = $('#websocket-proxy-url');
+    var cookieInput = $('#websocket-cookie');
     var connectBtn = $('#websocket-connect');
     var sendBtn = $('#websocket-send');
     var closeBtn = $('#websocket-close');
@@ -52,11 +54,21 @@ $(function () {
     }
 
     function connect() {
-        connectBtn.prop('disabled', true);
+        // connectBtn.prop('disabled', true);
         var url = urlInput.val().trim();
-        log('Connect:<br>' + url);
+        var proxy = proxyInput.val().trim();
+        var cookie = cookieInput.val().trim();
 
-        var ws = new WebSocket(url);
+        var connectUrl = url;
+        if (proxy.length > 0) {
+            connectUrl = proxy
+                + '?u=' + encodeURIComponent(url)
+                + '&cookie=' + encodeURIComponent(cookie);
+        }
+
+        log('Connect:<br>' + connectUrl);
+
+        var ws = new WebSocket(connectUrl);
 
         function onOpen(e) {
             var state = ws.readyState;
