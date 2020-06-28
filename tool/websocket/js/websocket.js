@@ -95,6 +95,7 @@ $(function () {
     }
 
     function connectClose() {
+        connectBtn.prop('disabled', false);
         connectBtn.removeClass(collapse);
         sendBtn.addClass(collapse);
         closeBtn.addClass(collapse);
