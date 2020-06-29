@@ -17,8 +17,8 @@
 
           <div class="d-flex flex-nowrap bg-white align-items-stretch mb-2">
             <div class="w-100 d-flex flex-nowrap border rounded bg-white align-items-stretch">
-              <div class="flex-shrink-0 d-flex  align-items-center border border-right-0 bg-light border-light rounded-left text-nowrap px-2 py-2">
-                <div>WS</div>
+              <div class="flex-shrink-0 d-flex  align-items-center border border-right-0 bg-white border-white rounded-left text-nowrap px-2 py-2">
+                <div>WS <i class="fa fa-caret-right text-secondary"></i></div>
               </div>
               <div class="w-100 bg-light" style="position: relative;">
                 <textarea id="websocket-url" type="text" class="form-control autoinput w-100 bg-white border-white overflow-hidden" data-autoinput-resize="focus" rows="1" style="word-break: break-all;"></textarea>
@@ -32,8 +32,8 @@
           </div>
 
           <div class="d-flex mb-2 border rounded bg-white align-items-stretch">
-            <div class="flex-shrink-1 d-flex align-items-center border border-right-0 bg-light border-light rounded-left text-nowrap px-2 py-2">
-              <div>PROXY</div>
+            <div class="flex-shrink-1 d-flex align-items-center border border-right-0 bg-white border-white rounded-left text-nowrap px-2 py-2">
+              <div>PROXY <i class="fa fa-caret-right text-secondary"></i></div>
             </div>
             <div class="w-100 bg-light" style="position: relative;">
               <textarea id="websocket-proxy-url" type="text" class="form-control autoinput w-100 bg-white border-white overflow-hidden" data-autoinput-resize="focus" rows="1" style="word-break: break-all;"></textarea>
@@ -41,8 +41,8 @@
           </div>
 
           <div class="d-flex mb-2 border rounded bg-white align-items-stretch">
-            <div class="flex-shrink-1 d-flex  align-items-center border border-right-0 bg-light border-light rounded-left text-nowrap px-2 py-2">
-              <div>COOKIE</div>
+            <div class="flex-shrink-1 d-flex  align-items-center border border-right-0 bg-white border-white rounded-left text-nowrap px-2 py-2">
+              <div>COOKIE <i class="fa fa-caret-right text-secondary"></i></div>
             </div>
             <div class="w-100 bg-light" style="position: relative;">
               <textarea id="websocket-cookie" type="text" class="form-control autoinput w-100 bg-white border-white overflow-hidden" data-autoinput-resize="focus" rows="1" style="word-break: break-all;"></textarea>
@@ -53,13 +53,7 @@
             <div class="d-flex justify-content-between align-items-center bg-light border-bottom rounded">
               <button type="button" class="btn btn-white">BODY</button>
               <div class="btn-group" role="group">
-                <button type="button" class="btn btn-link rounded-0" id="websocket-connect">FORMAT</button>
-                <div class="btn-group" role="group">
-                  <button type="button" class="btn dropdown-toggle btn-link" data-toggle="dropdown"></button>
-                  <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="/">CLEAR</a>
-                  </div>
-                </div>
+                <button type="button" class="btn btn-light rounded-0"><i class="fa fa-ban text-secondary"></i></button>
               </div>
             </div>
             <textarea id="websocket-request-body" type="text" class="form-control autoinput border-0" style="min-height: 200px; max-height: 200px;"></textarea>
@@ -69,13 +63,7 @@
             <div class="d-flex justify-content-between align-items-center bg-light border-bottom rounded">
               <button type="button" class="btn btn-white" data-toggle="collapse" href="#console-output">CONSOLE</button>
               <div class="btn-group" role="group">
-                <button type="button" class="btn btn-link rounded-0" id="websocket-connect">CLEAR</button>
-                <div class="btn-group" role="group">
-                  <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown"></button>
-                  <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="/">CLEAR</a>
-                  </div>
-                </div>
+                <button type="button" class="btn btn-light rounded-0"><i class="fa fa-ban text-secondary"></i></button>
               </div>
             </div>
             <div id="console-output" class="bg-white collapse show overflow-auto pb-1" style="min-height: 200px; max-height: 200px;"></div>
@@ -87,13 +75,7 @@
             <div class="d-flex justify-content-between align-items-center bg-light border-bottom rounded">
               <button type="button" class="btn btn-white">MESSAGE</button>
               <div class="btn-group" role="group">
-                <button type="button" class="btn btn-link rounded-0" id="websocket-connect">CLEAR</button>
-                <div class="btn-group" role="group">
-                  <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown"></button>
-                  <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="/">CLEAR</a>
-                  </div>
-                </div>
+                <button type="button" class="btn btn-light rounded-0"><i class="fa fa-ban text-secondary"></i></button>
               </div>
             </div>
             <div id="message-output" class="overflow-auto pb-1" style="min-height: 558px; max-height: 558px;"></div>
