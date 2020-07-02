@@ -116,7 +116,18 @@ $(function () {
 
         log('Connect:<br>' + connectUrl);
 
-        var ws = new WebSocket(connectUrl);
+        var ws = null;
+
+        try {
+            ws = new WebSocket(connectUrl)
+        } catch(err) {
+            log(`Create websocket error: ${err}`);
+        }
+
+        if (!ws) {
+            connectClose();
+            return;
+        }
 
         function onOpen(e) {
             connectOk();
